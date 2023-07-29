@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import CardManager from './cardManager'
+import CardManager from './CardManager.jsx';
 export default function CardContainer({onChangeLevel, data, level}) {
     const [currentData, setCurrentData] = useState([]);
     useEffect(() => {
