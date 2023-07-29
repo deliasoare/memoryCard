@@ -15,7 +15,10 @@ export default function CardContainer({data}) {
     }
 
     const nextLevel = () => {
-        setLevel(level + 1);
+        if (level !== 5)
+            setLevel(level + 1);
+        else
+            console.log('Winning condition');
     }
 
     useEffect(() => {

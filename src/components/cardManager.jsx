@@ -23,8 +23,6 @@ export default function CardManager({data, level, gameOver, nextLevel, increment
         }
     }
     useEffect(() => {
-        console.log(isClicked);
-
         let filled = true;
         isClicked.forEach(card => {
             if (card === 0)
