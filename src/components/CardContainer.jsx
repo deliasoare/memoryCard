@@ -39,7 +39,7 @@ export default function CardContainer({data}) {
     }, [level, data])
 
     return (
-        <div className='container'>
+        <div className='main'>
             <div className='stats'>
                 <p className='currentLevel'>Level {level}</p>
                 <p className='currentScore'>Current score: {currentScore}</p>
