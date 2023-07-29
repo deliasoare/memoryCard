@@ -6,6 +6,9 @@ export default function CardContainer({data}) {
     const [highScore, setHighScore] = useState(0);
     const [currentData, setCurrentData] = useState([]);
 
+    const incrementCurrentScore = () => {
+        setCurrentScore(currentScore + 1);
+    }
     const gameOver = () => {
         setLevel(1);
         setCurrentScore(0);
@@ -14,6 +17,11 @@ export default function CardContainer({data}) {
     const nextLevel = () => {
         setLevel(level + 1);
     }
+
+    useEffect(() => {
+        if (currentScore > highScore)
+            setHighScore(currentScore);
+    }, [currentScore]);
 
     useEffect(() => {
         let newData = [];
@@ -34,7 +42,7 @@ export default function CardContainer({data}) {
                 <p className='currentScore'>Current score: {currentScore}</p>
                 <p className='highScore'>High score: {highScore}</p>
             </div>
-            <CardManager data={currentData[0] !== undefined && currentData} level={level} gameOver={gameOver} nextLevel={nextLevel}/>
+            <CardManager data={currentData[0] !== undefined && currentData} level={level} gameOver={gameOver} nextLevel={nextLevel} incrementCurrentScore={incrementCurrentScore}/>
         </div>
     );
 }
