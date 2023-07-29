@@ -1,11 +1,12 @@
 import { useState, useEffect } from 'react';
 import Card from './Card';
-export default function CardManager({data, level}) {
+export default function CardManager({data, level, gameOver, nextLevel}) {
     const [isClicked, setIsClicked] = useState(Array(level * 5).fill(0));
-    
+    console.log(data);
     const onClickCard = (index) => {
-        if (isClicked[index] === 1)
-            console.log('lost');
+        if (isClicked[index] === 1) {
+            gameOver();
+        }
         else {
             let draft = [...isClicked];
             draft[index] = 1;
@@ -15,14 +16,17 @@ export default function CardManager({data, level}) {
     useEffect(() => {
         let filled = true;
         isClicked.forEach(card => {
-            console.log(card);
             if (card === 0)
                 filled = false;
         });
-        if (filled === true)
-            console.log('next level');
+        if (filled === true) {
+            nextLevel();
+        }
     }, [isClicked]);
 
+    useEffect(() => {
+        setIsClicked(Array(level * 5).fill(0));
+    }, [level])
     return (
         <div className='cardContainer'>
             {data ? data.map((card, index) => {
