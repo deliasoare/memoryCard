@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react';
 
 import CardContainer from './CardContainer';
 export default function Main() {
-    let level = 1;
+    const [level, setLevel] = useState([1]);
     const [data, setData] = useState([]);
 
     const url = 'https://free-to-play-games-database.p.rapidapi.com/api/filter?tag=3d.mmorpg.fantasy.pvp&platform=pc';
@@ -23,9 +23,12 @@ export default function Main() {
         fetchInfo();
     }, []);
 
+    const onChangeLevel = () => {
+        setLevel(level + 1)
+    }
     return (
         <>
-            <CardContainer data={data} level={level}/>
+            <CardContainer onChangeLevel={onChangeLevel} data={data} level={level}/>
         </>
     );
 }
