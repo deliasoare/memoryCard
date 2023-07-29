@@ -18,8 +18,10 @@ export default function CardContainer({data}) {
     useEffect(() => {
         let newData = [];
         let index = 0;
-        for (let i = (level - 1) * 5; i < (level - 1) * 5 + level * 5; i++) {
+        for (let i = 0; i < level * 4; i++) {
             newData[index] = data[i];
+            if (data[i])
+                newData[index].myId = index;
             index++;
         }
         setCurrentData(newData);

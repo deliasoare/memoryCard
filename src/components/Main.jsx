@@ -18,13 +18,13 @@ export default function Main() {
         .then((d) => setData(d));
     }
 
+    
     useEffect(() => {
         fetchInfo();
+        // add id to each data element
+        
     }, []);
 
-    const onChangeLevel = (value) => {
-        setLevel(value)
-    }
     return (
         <>
             <CardContainer data={data}/>

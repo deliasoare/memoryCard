@@ -1,7 +1,15 @@
 import { useState, useEffect } from 'react';
 import Card from './Card';
 export default function CardManager({data, level, gameOver, nextLevel}) {
-    const [isClicked, setIsClicked] = useState(Array(level * 5).fill(0));
+    const [isClicked, setIsClicked] = useState(Array(level * 4).fill(0));
+    
+    const shuffleArray = (array) => {
+        for (let i = array.length - 1; i > 0; i--) {
+            const j = Math.floor(Math.random() * (i + 1));
+            [array[i], array[j]] = [array[j], array[i]];
+        }
+    }
+    shuffleArray(data);
     console.log(data);
     const onClickCard = (index) => {
         if (isClicked[index] === 1) {
@@ -25,13 +33,14 @@ export default function CardManager({data, level, gameOver, nextLevel}) {
     }, [isClicked]);
 
     useEffect(() => {
-        setIsClicked(Array(level * 5).fill(0));
+        setIsClicked(Array(level * 4).fill(0));
     }, [level])
+    
     return (
         <div className='cardContainer'>
             {data ? data.map((card, index) => {
                 return (
-                    <Card onClickCard={onClickCard} id={index} key={index} info={card} />
+                    <Card onClickCard={onClickCard} id={card.myId} key={card.myId} info={card} />
                 );
             })
             :
