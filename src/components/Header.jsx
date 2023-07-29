@@ -1,6 +1,5 @@
-import Card from '../assets/card.png';
+import Card from '../assets/card.svg';
 export default function Header() {
-
     return (
         <div className='header'>
             <div className='title'>

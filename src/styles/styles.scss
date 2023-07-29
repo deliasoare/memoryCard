@@ -18,4 +18,8 @@ html, body, #root {
 }
 html {
     background: $background;
+    .container {
+        display: grid;
+        grid-template-rows: 75px 1fr 75px;
+    }
 }

@@ -1,0 +1,67 @@
+
+.header {
+    background: $header;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    .title {
+        display: flex;
+        align-items: center;
+        .logo {
+            aspect-ratio: 10/7;
+            height: 70px;
+            transform: rotate(90deg);
+            transition: ease-in-out 200ms;
+            cursor: pointer;
+            &:hover {
+                filter: drop-shadow(0 0 2em $text);
+            }
+        }
+        .name {
+            color: $background;
+            text-wrap: nowrap;
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+    }
+    .helpButtonContainer {
+        padding: 0 5em;
+        .helpButton {
+            font-size: 1.2rem;
+            padding: 0.3em 0.75em;
+            border-radius: 5px;
+            background: transparent;
+            border: 3px solid $background;
+            color: $background;
+            cursor: pointer;
+            
+            &:hover {
+                animation: {
+                    name: buttonAnimation;
+                    timing-function: ease-in-out;
+                    duration: 750ms;
+                    fill-mode: forwards;
+                    iteration-count: 1;    
+                }
+            }
+        }
+    }
+}
+@keyframes buttonAnimation {
+    0% {
+        border: 3px solid $background;
+        color: $background;
+    }
+    50% {
+        border-bottom: 3px solid $text;
+        border-right: 3px solid $text;
+    }
+    60% {
+        color: $text;
+    }
+    100% {
+        border: 3px solid $text;
+        color: $text;
+
+    }
+}
