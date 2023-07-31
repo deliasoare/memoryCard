@@ -42,11 +42,14 @@ export default function CardContainer({data}) {
     return (
         <div className='main'>
             <div className='stats'>
-                <p className='currentLevel'>Level {level}</p>
                 <p className='currentScore'>Current score: {currentScore}</p>
                 <p className='highScore'>High score: {highScore}</p>
             </div>
-            <CardManager data={currentData[0] !== undefined && currentData} level={level} gameOver={gameOver} nextLevel={nextLevel} incrementCurrentScore={incrementCurrentScore}/>
+            <div class='mainContainer'>
+                <p className='currentLevel'>Level {level}</p>
+                <CardManager data={currentData[0] !== undefined && currentData} level={level} gameOver={gameOver} nextLevel={nextLevel} incrementCurrentScore={incrementCurrentScore}/>
+            </div>
+
         </div>
     );
 }
