@@ -47,9 +47,60 @@
 }
 
 .restartGame {
-    margin-top:15px;
+    margin-top:20px;
     font-size: 1.2rem;
     padding: 0.15em;
+    background: $header;
+    position: relative;
+    border: none;
+    cursor: pointer;
+    &::before {
+        content: "";
+        position: absolute;
+        top:0; bottom:0; right:0; left:0;
+        z-index:2;
+        border: 3px solid $text;
+        animation: {
+            name: rotateBorder;
+            duration: 4000ms;
+            fill-mode: forwards;
+            timing-function: ease-in-out;
+            iteration-count: infinite;
+        }
+    }
+    &:hover {
+        animation: {
+            name:hoverRestartBtn;
+            duration: 1050ms;
+            delay: 200ms;
+            fill-mode: forwards;
+            timing-function: ease-in-out;
+            iteration-count: 1;
+        }
+    }
+}
+
+@keyframes rotateBorder {
+    0% {
+        border-top: 3px solid #fff;
+    }
+    25% {
+        border-right: 3px solid #fff;
+    }
+    50% {
+        border-bottom: 3px solid #fff;
+    }
+    75% {
+        border-left: 3px solid #fff;
+    }
+}
+@keyframes hoverRestartBtn {
+    0% {
+        transform: scale(0) rotate(0deg);
+    }
+    100% {
+        transform: scale(1.2) rotate(-20deg);
+    }
 }
 
 @keyframes loading {
