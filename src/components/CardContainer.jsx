@@ -23,6 +23,11 @@ export default function CardContainer({data}) {
             setWonGame(true);
     }
 
+    const restartGame = () => {
+        gameOver();
+        setWonGame(false);
+    }
+    
     useEffect(() => {
         if (currentScore > highScore)
             setHighScore(currentScore);
@@ -62,7 +67,7 @@ export default function CardContainer({data}) {
                         </div>
                         <div>
                             <p>Would you like to try again?</p>
-                            <button className='restartGame'>Restart</button>
+                            <button onClick={restartGame} className='restartGame'>Restart</button>
                         </div>
                     </div>
                 </div>
