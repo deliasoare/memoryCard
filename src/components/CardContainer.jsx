@@ -8,6 +8,7 @@ export default function CardContainer({data}) {
 
     const incrementCurrentScore = () => {
         setCurrentScore(currentScore + 1);
+        console.log(currentScore);
     }
     const gameOver = () => {
         setLevel(1);
