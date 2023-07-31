@@ -9,6 +9,7 @@ export default function CardManager({data, level, gameOver, nextLevel, increment
             [array[i], array[j]] = [array[j], array[i]];
         }
     }
+    
     shuffleArray(data);
     const onClickCard = (index) => {
         if (isClicked[index] === 1) {
