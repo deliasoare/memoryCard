@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
 import Card from './Card';
+
 export default function CardManager({data, level, gameOver, nextLevel, incrementCurrentScore}) {
     const [isClicked, setIsClicked] = useState(Array(level * 4).fill(0));
     
@@ -9,7 +10,7 @@ export default function CardManager({data, level, gameOver, nextLevel, increment
             [array[i], array[j]] = [array[j], array[i]];
         }
     }
-    
+
     shuffleArray(data);
     const onClickCard = (index) => {
         if (isClicked[index] === 1) {
