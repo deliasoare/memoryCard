@@ -68,6 +68,9 @@
         }
     }
 }
+
+@include modal('help', 'Help');
+
 @keyframes buttonAnimation {
     0% {
         border: 3px solid $background;
@@ -86,51 +89,4 @@
     }
 }
 
-.helpContainer {
-    position: absolute;
-    background: rgba(0, 0, 0, 0.3);
-    left: 0;
-    right: 0;
-    bottom: 0;
-    top: 0;
-     .helpModal {
-        position: absolute;
-        left: 50%;
-        top: 50%;
-        transform: translate(-50%, -50%);
-        width: min(300px, 70%);
-        height: min(250px, 30%);
-        min-height: 250px;
-        min-width: 225px;
-        background: white;
-        padding: 1em;
-        &::before {
-            content:"";
-            position: absolute;
-            inset: 0;
-            padding: 5px;
-            background: 
-                repeating-conic-gradient($background 0 25%,$header 0 50%) 
-                0 0/30px 30px round;
-                -webkit-mask:
-                  linear-gradient(#000 0 0) content-box,
-                  linear-gradient(#000 0 0);
-                -webkit-mask-composite: xor;
-                        mask-composite: exclude;
-                pointer-events: none;
-              
-        }
-        .closeHelpModal {
-            position: absolute;
-            top: 4px;
-            right: 9px;
-            font-size: 1.5rem;
-            cursor: pointer;
-            font-weight: bolder;
-        }
-        .modalContent {
-            margin-top: 15px;
-        }
-     }
-}
 
