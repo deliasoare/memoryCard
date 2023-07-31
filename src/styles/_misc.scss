@@ -25,6 +25,33 @@
         }
     }
 }
+
+@include modal('wonGame', 'WonGame');
+
+.wonGameContent {
+    background: $background;
+    margin-top: 0px !important;
+    height: 100%;
+    width: 100%;
+    display: flex;
+    flex-direction:column;
+    justify-content: space-evenly;
+    align-items: center;
+    div, p {
+        text-align: center;
+    }
+    .bold {
+        font-weight: bold;
+        font-size: 1.3rem;
+    }
+}
+
+.restartGame {
+    margin-top:15px;
+    font-size: 1.2rem;
+    padding: 0.15em;
+}
+
 @keyframes loading {
     0% {
         transform: rotate(0deg);

@@ -5,6 +5,7 @@ export default function CardContainer({data}) {
     const [currentScore, setCurrentScore] = useState(0);
     const [highScore, setHighScore] = useState(0);
     const [currentData, setCurrentData] = useState([]);
+    const [wonGame, setWonGame] = useState(false);
 
     const incrementCurrentScore = () => {
         setCurrentScore(currentScore + 1);
@@ -16,10 +17,10 @@ export default function CardContainer({data}) {
     }
 
     const nextLevel = () => {
-        if (level !== 5)
+        if (level !== 2)
             setLevel(level + 1);
         else
-            console.log('Winning condition');
+            setWonGame(true);
     }
 
     useEffect(() => {
@@ -40,16 +41,33 @@ export default function CardContainer({data}) {
     }, [level, data])
 
     return (
+        <>
         <div className='main'>
             <div className='stats'>
                 <p className='currentScore'>Current score: {currentScore}</p>
                 <p className='highScore'>High score: {highScore}</p>
             </div>
-            <div class='mainContainer'>
+            <div className='mainContainer'>
                 <p className='currentLevel'>Level {level}</p>
                 <CardManager data={currentData[0] !== undefined && currentData} level={level} gameOver={gameOver} nextLevel={nextLevel} incrementCurrentScore={incrementCurrentScore}/>
             </div>
-
         </div>
+        {wonGame &&
+            <div className='wonGameContainer'>
+                <div className='wonGameModal'>
+                    <div className='modalContent wonGameContent'>
+                        <div className="congratulatoryMsg">
+                            <p className='bold'>YOU WON!</p>
+                            <p>Wow, that's impressive!</p>
+                        </div>
+                        <div>
+                            <p>Would you like to try again?</p>
+                            <button className='restartGame'>Restart</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        }
+        </>
     );
 }
