@@ -39,14 +39,15 @@ export default function CardManager({data, level, gameOver, nextLevel, increment
     
     return (
         <div className='cardContainer'>
-            {data ? data.map((card, index) => {
+            {data ? data.map((card) => {
                 return (
                     <Card onClickCard={onClickCard} id={card.myId} key={card.myId} info={card} />
                 );
             })
             :
-            <p>Wait.</p>
-            }
+                <div className='loadingContainer'>
+                    <div className='load'></div>
+                </div>            }
         </div>
     );
 }
