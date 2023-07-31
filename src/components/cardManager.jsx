@@ -47,7 +47,8 @@ export default function CardManager({data, level, gameOver, nextLevel, increment
             :
                 <div className='loadingContainer'>
                     <div className='load'></div>
-                </div>            }
+                </div>            
+            }
         </div>
     );
 }
