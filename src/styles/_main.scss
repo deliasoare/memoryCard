@@ -10,5 +10,37 @@
     }
     .mainContainer {
         background: #fff;
+        padding: 1em;
+        .currentLevel {
+            font-size: 1.6rem;
+        }
+        .cardContainer {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 7px;
+            .card {
+                border: 3px solid $header;
+                padding: 0.5rem;
+                background: $background;
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                gap: 20px;
+                cursor: pointer;
+                img {
+                    aspect-ratio: 365/206;
+                    max-width: 250px;
+                }
+                .cardTitle {
+                    font-size: 1.1rem;
+                }
+                &:hover {
+                    background: $header;
+                    border: 3px solid $background;
+                }
+            }
+        }
     }
 }

@@ -5,6 +5,9 @@ export default function Card({onClickCard, id, info}) {
         onClickCard(id);
     }
     return (
-        <button onClick={setOffClick}>{info.title}</button>
+        <a className="card" onClick={setOffClick}>
+            <img className="cardThumbnail" src={info.thumbnail} />
+            <p className="cardTitle">{info.title}</p>
+        </a>
     );
 }

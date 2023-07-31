@@ -21,6 +21,6 @@ html {
     background: $background;
     .container {
         display: grid;
-        grid-template-rows: 75px 1fr 75px;
+        grid-template-rows: 75px 1fr 35px;
     }
 }
