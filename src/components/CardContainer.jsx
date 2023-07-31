@@ -17,7 +17,7 @@ export default function CardContainer({data}) {
     }
 
     const nextLevel = () => {
-        if (level !== 2)
+        if (level !== 5)
             setLevel(level + 1);
         else
             setWonGame(true);
@@ -27,7 +27,7 @@ export default function CardContainer({data}) {
         gameOver();
         setWonGame(false);
     }
-    
+
     useEffect(() => {
         if (currentScore > highScore)
             setHighScore(currentScore);
