@@ -15,7 +15,7 @@
 }
 html, body, #root {
     height: 100%;
-    .container {
+    .container{
         min-height: 100%;
     }
 }
@@ -24,5 +24,6 @@ html {
     .container {
         display: grid;
         grid-template-rows: 75px 1fr 35px;
+        position: relative;
     }
 }
